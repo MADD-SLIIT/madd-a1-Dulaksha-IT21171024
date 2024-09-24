@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1013279187733",
+    "firebase_url": "https://knowledge-hub-dbe1a-default-rtdb.firebaseio.com",
+    "project_id": "knowledge-hub-dbe1a",
+    "storage_bucket": "knowledge-hub-dbe1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013279187733:android:3fb3e06f24925ac6c37f1c",
+        "android_client_info": {
+          "package_name": "com.example.knowledgehub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzgJUyX7vm2JwXJ899bIbibGCLLV8fJY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013279187733:android:d9e49577e00eb72fc37f1c",
+        "android_client_info": {
+          "package_name": "com.example.knowledgehubfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzgJUyX7vm2JwXJ899bIbibGCLLV8fJY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013279187733:android:ffbf3510f3320140c37f1c",
+        "android_client_info": {
+          "package_name": "com.example.testvirtualdevice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzgJUyX7vm2JwXJ899bIbibGCLLV8fJY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

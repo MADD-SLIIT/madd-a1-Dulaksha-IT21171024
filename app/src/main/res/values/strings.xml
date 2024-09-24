@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Knowledge Hub Final</string>
+    <string name="appName">Knowledge Hub</string>
+    <string name="splash">Grow your Education and Level up with....</string>
+    <string name="email">Type your Email</string>
+    <string name="sign_up">Register</string>
+    <string name="password">Enter Password</string>
+    <string name="Re_password">Confirm Password</string>
+    <string name="sign_up_btn">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="haven_t_registered_yet">Not Registered Yet?</string>
+    <string name="sign_in_topic">Sign In</string>
+    <string name="sign_in_btn">Sign In</string>
+</resources>
