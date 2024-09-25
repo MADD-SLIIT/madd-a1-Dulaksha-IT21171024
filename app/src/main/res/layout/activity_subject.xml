@@ -1,0 +1,226 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0F7FA"
+    tools:context=".SubjectActivity">
+
+    <!-- Header Section -->
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/appName"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1A237E"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/SubjectTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SubjectTitle_Math"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:layout_below="@id/Header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- Card 1: Factors -->
+    <LinearLayout
+        android:id="@+id/cardFactors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/SubjectTitle"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_corners"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/Factors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/factors"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#6D4C41" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/imgPDF"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/pdf_icon"
+                android:contentDescription="@string/lesson_pdf_txt" />
+
+            <TextView
+                android:id="@+id/LessonPDF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lesson_pdf_txt"
+                android:textSize="16sp"
+                android:textColor="#6D4C41"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp" />
+
+            <ImageView
+                android:id="@+id/imgDownload"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/download_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp"
+                android:contentDescription="Download" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnQuizFactors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quiz_btn"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#42A5F5"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Card 2: Graphs -->
+    <LinearLayout
+        android:id="@+id/cardGraphs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/cardFactors"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_corners"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvGraphs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/graphs"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#6D4C41" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imgVideoGraphs"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/ic_play_circle"-->
+<!--                android:contentDescription="Watch Video" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvWatchVideoGraphs"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Watch Video"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textColor="#6D4C41"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginStart="8dp" />-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/imgPDFGraphs"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/pdf_icon"
+                android:contentDescription="Lesson PDF" />
+
+            <TextView
+                android:id="@+id/tvLessonPDFGraphs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lesson_pdf_txt"
+                android:textSize="16sp"
+                android:textColor="#6D4C41"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp" />
+
+            <ImageView
+                android:id="@+id/imgDownloadGraphs"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/download_icon"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp"
+                android:contentDescription="Download" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnQuizGraphs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quiz_btn"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#42A5F5"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/navHome"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/dashboard_icon"
+            android:contentDescription="Home"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/navNotifications"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/notification_icon"
+            android:contentDescription="Notifications"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/navProfile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:src="@drawable/profile_icon"
+            android:contentDescription="Profile"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</RelativeLayout>
