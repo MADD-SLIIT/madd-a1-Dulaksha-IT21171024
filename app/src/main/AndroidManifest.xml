@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.knowledgehubfinal">
 
+    <!-- Permissions for Internet and External Storage Access -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Application declaration -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -18,19 +24,37 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
-<!--            android:theme="@style/Theme.KnowledgeHubFinal.NoActionBar"> &lt;!&ndash; If you want to hide the ActionBar &ndash;&gt;-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- SignUpActivity and SignInActivity declarations -->
+        <!-- Other Activity Declarations -->
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".SubjectActivity" />
         <activity android:name=".QuizActivity" />
+        <activity android:name=".ResultsActivity" />
+        <activity android:name=".NotificationsActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".MathsPdfActivity" />
+        <activity android:name=".PdfUploadActivity" />
+        <activity android:name=".PdfViewerActivity" />
+        <activity android:name=".UserDashboardActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
     </application>
+
 </manifest>

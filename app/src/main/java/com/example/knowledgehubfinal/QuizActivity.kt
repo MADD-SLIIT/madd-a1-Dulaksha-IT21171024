@@ -9,45 +9,47 @@ import com.google.android.material.card.MaterialCardView
 class QuizActivity : AppCompatActivity() {
 
     private var currentQuestion = 0
-    private val totalQuestions = 3
-    private val questionsMap = mapOf(
-        "Factors" to listOf("What is the factor of 12?", "What is the factor of 24?", "What is the factor of 18?"),
-        "Graphs" to listOf("What is a line graph?", "What is the slope of a graph?", "What is the intercept in a graph?")
+    private val totalQuestions = 15
+
+    // Mixed questions without categorization
+    private val questions = listOf(
+        "What is the factor of 12?", "What is the slope of a graph?", "What is the factor of 24?",
+        "What is the intercept in a graph?", "What is the factor of 18?", "What is a bar graph?",
+        "What is the x-axis of a graph?", "What is the range of a graph?", "What is the factor of 36?",
+        "What does a pie chart represent?", "What is the median in a graph?", "What is the factor of 48?",
+        "What does the gradient of a graph represent?", "What is the mode in a graph?", "What is the factor of 60?"
     )
 
-    private val optionsMap = mapOf(
-        "Factors" to listOf(
-            listOf("1", "2", "3", "4"),
-            listOf("2", "3", "4", "6"),
-            listOf("2", "3", "6", "9")
-        ),
-        "Graphs" to listOf(
-            listOf("A plot of points", "A bar chart", "A pie chart", "None"),
-            listOf("Rate of change", "Position", "Intercept", "Constant"),
-            listOf("Where the graph crosses the y-axis", "Slope", "Rate of change", "None")
-        )
+    // Corresponding options for each question
+    private val options = listOf(
+        listOf("1", "2", "3", "4"), listOf("Rate of change", "Position", "Intercept", "Constant"),
+        listOf("2", "3", "4", "6"), listOf("Where the graph crosses the y-axis", "Slope", "Rate of change", "None"),
+        listOf("2", "3", "6", "9"), listOf("A graph with bars", "A pie chart", "A line graph", "None"),
+        listOf("Horizontal line", "Vertical line", "Both", "None"), listOf("Difference between values", "Maximum value", "Minimum value", "Both"),
+        listOf("4", "6", "9", "12"), listOf("Distribution of data", "Comparison of data", "Trends over time", "None"),
+        listOf("Middle value", "Range", "Difference", "Mode"), listOf("4", "6", "8", "12"),
+        listOf("Steepness", "Direction", "Position", "None"), listOf("Most frequent value", "Average", "Median", "None"),
+        listOf("5", "10", "12", "15")
     )
 
-    private val correctAnswers = mapOf(
-        "Factors" to listOf("3", "6", "9"),
-        "Graphs" to listOf("A plot of points", "Rate of change", "Where the graph crosses the y-axis")
+    // Correct answers for each question
+    private val correctAnswers = listOf(
+        "3", "Rate of change", "6", "Where the graph crosses the y-axis", "9", "A graph with bars",
+        "Horizontal line", "Difference between values", "12", "Distribution of data", "Middle value", "12",
+        "Steepness", "Most frequent value", "15"
     )
 
-    private lateinit var selectedTopic: String
     private val selectedAnswers = mutableListOf<String?>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        selectedTopic = intent.getStringExtra("topic") ?: "Factors"
-
-        // Initialize selected answers with null values
         selectedAnswers.addAll(List(totalQuestions) { null })
 
         // Set the quiz heading dynamically
         val tvQuizHeading: TextView = findViewById(R.id.quizTitle)
-        tvQuizHeading.text = "$selectedTopic Quiz"
+        tvQuizHeading.text = "Mathematics Quiz"
 
         loadQuestion()
 
@@ -69,9 +71,6 @@ class QuizActivity : AppCompatActivity() {
         val tvProgress: TextView = findViewById(R.id.Progress_indicator)
         val radioGroupOptions: RadioGroup = findViewById(R.id.radioGroupOptions)
 
-        val questions = questionsMap[selectedTopic] ?: listOf("No questions available")
-        val options = optionsMap[selectedTopic] ?: listOf(listOf("No options available"))
-
         tvQuestion.text = questions[currentQuestion]
         tvProgress.text = "Question ${currentQuestion + 1} of $totalQuestions"
 
@@ -86,8 +85,9 @@ class QuizActivity : AppCompatActivity() {
         radioOption3.text = currentOptions[2]
         radioOption4.text = currentOptions[3]
 
-        val selectedAnswer = selectedAnswers[currentQuestion]
+        // Clear previous selections and set the saved answer if available
         radioGroupOptions.clearCheck()
+        val selectedAnswer = selectedAnswers[currentQuestion]
         when (selectedAnswer) {
             radioOption1.text -> radioOption1.isChecked = true
             radioOption2.text -> radioOption2.isChecked = true
@@ -108,11 +108,10 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun submitQuiz() {
-        val correctAnswersList = correctAnswers[selectedTopic] ?: listOf()
         var score = 0
 
         for (i in 0 until totalQuestions) {
-            if (selectedAnswers[i] == correctAnswersList[i]) {
+            if (selectedAnswers[i] == correctAnswers[i]) {
                 score++
             }
         }
@@ -129,30 +128,26 @@ class QuizActivity : AppCompatActivity() {
         tvQuestion.isVisible = false
         tvProgress.isVisible = false
         radioGroupOptions.isVisible = false
-
-        // Hide the next button
         btnNext.isVisible = false
 
-        // Show the result in a card view
+        // Show the result in the card view
         val cardResult: MaterialCardView = findViewById(R.id.cardResult)
         val tvResult: TextView = findViewById(R.id.tvResult)
         val tvMessage: TextView = findViewById(R.id.tvMessage)
-
-        tvResult.text = "You scored $score out of $totalQuestions!"
-        tvMessage.text = when (score) {
-            totalQuestions -> "Excellent! You've mastered this topic."
-            in 1 until totalQuestions -> "Great effort! Keep practicing."
-            else -> "Don't worry! Try again and improve."
-        }
+        val btnFinish: Button = findViewById(R.id.btnFinish)
 
         cardResult.isVisible = true
+        tvResult.text = "$score/$totalQuestions"
 
-        // Add a "Finish" button to go back
-        btnNext.text = "Finish"
-        btnNext.isVisible = true
-        btnNext.setOnClickListener {
-            finish()  // This will close the QuizActivity and navigate back to the previous activity
+        tvMessage.text = when {
+            score == totalQuestions -> "Excellent! You got all answers correct."
+            score >= totalQuestions / 2 -> "Great job! You passed the quiz."
+            else -> "Better luck next time."
+        }
+
+        btnFinish.isVisible = true
+        btnFinish.setOnClickListener {
+            finish()
         }
     }
-
 }

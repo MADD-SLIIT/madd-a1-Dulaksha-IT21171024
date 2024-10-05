@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     android:background="#E0F7FA">
 
+    <!-- Email field moved above -->
+
     <TextView
         android:id="@+id/SignInTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="160dp"
         android:text="@string/sign_in_topic"
         android:textColor="@color/blue2"
         android:textSize="38sp"
@@ -19,7 +21,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Email field moved above -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardEmail"
         android:layout_width="0dp"
@@ -102,12 +103,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp" />
 
+    <!-- Social Media Login Icons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toBottomOf="@id/signInButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/googleLogin"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/google_icon" />
+
+        <ImageView
+            android:id="@+id/fbLogin"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/fb_icon" />
+
+        <ImageView
+            android:id="@+id/twitterLogin"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/twitter_icon"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
     <TextView
         android:id="@+id/NotReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="116dp"
         android:text="@string/havent_registered_yet"
         android:textColor="@color/blue3"
         android:textSize="16sp"
@@ -119,15 +151,12 @@
         android:id="@+id/signUpTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="116dp"
         android:text="@string/sign_up"
         android:textColor="@color/blue3"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/signInButton"
         app:layout_constraintStart_toEndOf="@id/NotReg"
-        android:layout_marginStart="80dp"
-        app:layout_constraintHorizontal_bias="0.5" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/signInButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

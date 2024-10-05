@@ -9,7 +9,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.card.MaterialCardView
 
-class DashboardActivity : AppCompatActivity() {
+class UserDashboardActivity : AppCompatActivity() {
 
     private lateinit var btnEnrollMath: Button
     private lateinit var btnEnrollScience: Button
@@ -18,56 +18,79 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var searchBar: EditText
     private lateinit var navNotifications: ImageView
     private lateinit var navProfile: ImageView
-    private lateinit var navHome: ImageView // Initialize navHome button
+    private lateinit var quizbtn: Button
+    private lateinit var UserHome: ImageView
     private lateinit var logout: ImageView // Initialize logout button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
+        setContentView(R.layout.activity_userdashboard)
 
-        btnEnrollMath = findViewById(R.id.btnEnroll)
-        btnEnrollScience = findViewById(R.id.btnEnrollScience)
+//        // Find the quizMaths button by its ID
+//        val quizMathsButton: Button = findViewById(R.id.quizMaths)
+//
+//        // Set an OnClickListener on the quizMaths button
+//        quizMathsButton.setOnClickListener {
+//            // Create an intent to navigate to QuizActivity
+//            val intent = Intent(this@UserDashboardActivity, QuizActivity::class.java)
+//            // Start the QuizActivity
+//            startActivity(intent)
+//        }
+
+        btnEnrollMath = findViewById(R.id.UbtnEnroll)
+        btnEnrollScience = findViewById(R.id.UbtnEnrollScience)
         cardMathematics = findViewById(R.id.cardMathematics)
         cardScience = findViewById(R.id.cardScience)
         searchBar = findViewById(R.id.searchBar) // Initialize search bar
-//        navNotifications = findViewById(R.id.navNotifications) // Initialize notifications icon
+        navNotifications = findViewById(R.id.navNotifications) // Initialize notifications icon
         navProfile = findViewById(R.id.navProfile); // Initialize profile icon
-        navHome = findViewById(R.id.navHome) // Initialize navHome button
+        quizbtn = findViewById(R.id.quizMaths)
+        UserHome = findViewById(R.id.UserHome)
         logout = findViewById(R.id.logout) // Initialize logout button
+
 
         btnEnrollMath.setOnClickListener {
             onEnrollButtonClick(btnEnrollMath, "Mathematics")
         }
 
-        btnEnrollScience.setOnClickListener {
-            onEnrollButtonClick(btnEnrollScience, "Science")
-        }
+//        btnEnrollScience.setOnClickListener {
+//            onEnrollButtonClick(btnEnrollScience, "Science")
+//        }
 
         // Set click listeners for the subject cards
         cardMathematics.setOnClickListener {
             navigateToSubject("Mathematics")
         }
-
-        cardScience.setOnClickListener {
-            navigateToSubject("Science")
-        }
+//
+//        cardScience.setOnClickListener {
+//            navigateToSubject("Science")
+//        }
 
         // Set up navigation for bottom icons
-//        navNotifications.setOnClickListener {
-//            navigateToNotifications()
-//        }
+        navNotifications.setOnClickListener {
+            navigateToNotifications()
+        }
 
         navProfile.setOnClickListener {
             navigateToProfile()
         }
 
-        navHome.setOnClickListener {
-            navigateToUserDashboard() // Set up navigation to UserDashboardActivity
+        quizbtn.setOnClickListener {
+            navigateToQuiz()
+        }
+
+        UserHome.setOnClickListener {
+            navigateToUserDasboard()
         }
 
         logout.setOnClickListener {
             navigateToSignIn() // Set up navigation to SignInActivity
         }
+    }
+
+    private fun navigateToQuiz() {
+        val intent = Intent(this, QuizActivity::class.java)
+        startActivity(intent)
     }
 
     private fun onEnrollButtonClick(button: Button, subject: String) {
@@ -81,28 +104,25 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     private fun navigateToSubject(subject: String) {
-        val intent = Intent(this, PdfUploadActivity::class.java)
+        val intent = Intent(this, SubjectActivity::class.java)
         intent.putExtra("SUBJECT_TITLE", subject)
         startActivity(intent)
     }
 
-//    private fun navigateToNotifications() {
-//        val intent = Intent(this, NotificationsActivity::class.java) // Replace with your actual Notifications Activity
-//        startActivity(intent)
-//    }
+    private fun navigateToNotifications() {
+        val intent = Intent(this, ResultsActivity::class.java) // Replace with your actual Notifications Activity
+        startActivity(intent)
+    }
 
     private fun navigateToProfile() {
         val intent = Intent(this, ProfileActivity::class.java) // Replace with your actual Profile Activity
         startActivity(intent)
     }
 
-    // Method to navigate to UserDashboardActivity
-    private fun navigateToUserDashboard() {
-        val intent = Intent(this, DashboardActivity::class.java)
+    private fun navigateToUserDasboard() {
+        val intent = Intent(this, UserDashboardActivity::class.java)
         startActivity(intent)
     }
-
-    // Method to navigate to SignInActivity
     private fun navigateToSignIn() {
         val intent = Intent(this, SignInActivity::class.java)
         startActivity(intent)

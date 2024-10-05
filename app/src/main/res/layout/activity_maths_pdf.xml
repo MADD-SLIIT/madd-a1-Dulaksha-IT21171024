@@ -1,10 +1,9 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E0F7FA"
-    tools:context=".SubjectActivity">
+    android:layout_height="match_parent">
 
     <!-- Header Section -->
     <TextView
@@ -16,8 +15,11 @@
         android:textStyle="bold"
         android:textColor="#1A237E"
         android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Subject Title -->
     <TextView
         android:id="@+id/SubjectTitle"
         android:layout_width="wrap_content"
@@ -25,30 +27,37 @@
         android:text="@string/SubjectTitle_Math"
         android:textSize="24sp"
         android:textColor="#000000"
-        android:layout_below="@id/Header"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/Header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- RecyclerView for displaying PDF content -->
+    <!-- RecyclerView for displaying PDFs -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/UserPdfRecylerview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/SubjectTitle"
-        android:layout_marginTop="16dp"
-        android:layout_above="@id/bottomNavigation" />
+        android:id="@+id/MathsPdfRecylerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/SubjectTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintHorizontal_bias="1.0" />
 
-    <!-- Quiz Results Button -->
-<!--    <Button-->
-<!--        android:id="@+id/btnQuizResults"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Quiz Results"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:backgroundTint="#42A5F5"-->
-<!--        android:layout_below="@id/SubjectTitle"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_marginTop="16dp" />-->
+    <!-- Uncommented Progress Bar for future use -->
+    <!--
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+    -->
 
     <!-- Bottom Navigation -->
     <LinearLayout
@@ -56,8 +65,8 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white">
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
             android:id="@+id/logout"
@@ -65,25 +74,15 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/logout"
-            android:contentDescription="Logut"
+            android:contentDescription="Logout"
             android:layout_gravity="center" />
 
-
         <ImageView
-            android:id="@+id/UserHome"
+            android:id="@+id/navHome"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:src="@drawable/dashboard_icon"
-            android:contentDescription="Home"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:id="@+id/navNotifications"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:src="@drawable/notification_icon"
             android:contentDescription="Notifications"
             android:layout_gravity="center" />
 
@@ -97,4 +96,4 @@
             android:layout_gravity="center" />
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

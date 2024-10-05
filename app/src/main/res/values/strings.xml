@@ -24,7 +24,7 @@
     <string name="factors">Factors</string>
     <string name="quiz_btn">Quiz</string>
     <string name="graphs">Graphs</string>
-    <string name="factors_quiz">Factors Quiz</string>
+    <string name="factors_quiz">Mathematics Quiz</string>
     <string name="question_1_of_40">Question 1 of 40</string>
     <string name="what_is_the_factor_of_12">What is the factor of 12?</string>
     <string name="option_1">Option 1</string>
@@ -32,4 +32,12 @@
     <string name="option_3">Option 3</string>
     <string name="option_4">Option 4</string>
     <string name="next_btn">Next</string>
+    <string name="school">School</string>
+    <string name="age">Age</string>
+    <string name="address">Address</string>
+    <string name="english_txt">English</string>
+    <string name="sinhala_txt">Sinhala</string>
+    <string name="Sinhala_Des">O/L new syllabus Sinhala courses</string>
+    <string name="English_Des">O/L new syllabus English courses</string>
+    <string name="no_pdf_file_selected_yet">No PDF File Selected yet !</string>
 </resources>
